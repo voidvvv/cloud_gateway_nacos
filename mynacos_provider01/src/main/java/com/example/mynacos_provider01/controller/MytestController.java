@@ -22,7 +22,11 @@ public class MytestController {
     private Environment environment;
 
     private String getPort(){
-        return environment.getProperty("local.server.port");
+        String property = System.getProperty("server.port");
+        System.out.println("System.getProperty"+property);
+        String property1 = environment.getProperty("local.server.port");
+        System.out.println("property1"+property1);
+        return property1;
     }
 
     @RequestMapping("/hello")
