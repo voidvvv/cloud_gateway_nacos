@@ -20,9 +20,12 @@ import org.springframework.core.env.Environment;
 public class LoadBalancerConfig {
     @Bean
     public ReactorLoadBalancer<ServiceInstance> randomLoadBalancer(Environment environment, LoadBalancerClientFactory loadBalancerClientFactory){
+
         String name = environment.getProperty(LoadBalancerClientFactory.PROPERTY_NAME);
+        System.out.println("aaaaZ:"+name);
         return new MyReactLoadBalancer(loadBalancerClientFactory.getLazyProvider(name, ServiceInstanceListSupplier.class), name);
     }
+
 
 //    @Bean
 //    public ReactorLoadBalancer<ServiceInstance> randomLoadBalancer02(Environment environment, LoadBalancerClientFactory loadBalancerClientFactory){

@@ -8,6 +8,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.Stack;
+
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
@@ -17,10 +20,4 @@ public class MynacosConsumerApplication {
         SpringApplication.run(MynacosConsumerApplication.class, args);
     }
 
-
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate(){
-        return new RestTemplate();
-    }
 }
